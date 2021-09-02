@@ -18,7 +18,7 @@ function EditTask({ task }) {
 		dispatch(
 			edittask({ ...task, description: newDescription, isDone: newIsdone })
 		);
-		handleClose();
+		setShow(false);
 	};
 
 	const [newDescription, setnewDescription] = useState(task.description);

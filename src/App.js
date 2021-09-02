@@ -7,8 +7,20 @@ import ListTask from "./components/ListTask";
 
 function App() {
 	const tasks = useSelector((state) => state.TaskReducer.tasks);
-	const filter = useSelector((state) => state.filter);
+	const filter = useSelector((state) => state.TaskReducer.filter);
+	const filtredList = () => {
+		//clo
+		//console.log(filter);
+		switch (filter) {
+			case "Done":
+				return tasks.filter((el) => el.isDone === "Done");
+			case "Not Done":
+				return tasks.filter((el) => el.isDone === "Not Done");
 
+			default:
+				return tasks;
+		}
+	};
 	return (
 		<div>
 			<header>
@@ -16,7 +28,7 @@ function App() {
 			</header>
 			<Addtask />
 			<FilterTask />
-			<ListTask tasks={tasks.filter((task) => task.isDone === filter)} />
+			<ListTask tasks={filtredList()} />
 		</div>
 	);
 }
