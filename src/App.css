@@ -136,3 +136,6 @@ select {
   transform: scale(1.5);
 }
 */
+.my-modal {
+	color: rgb(1, 8, 102);
+}
